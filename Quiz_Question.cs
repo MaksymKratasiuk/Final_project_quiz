@@ -39,5 +39,15 @@ namespace Final_project_quiz
             }
         }
 
+        public bool EqualQuestion(Quiz_Question question)
+        {
+            return Question == question.Question && Answer == question.Answer;
+        }
+        public bool IsCorrectAnswer(string answer)
+        {
+            return  Answer == answer;
+        }
+
+
     }
 }
