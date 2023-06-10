@@ -12,11 +12,11 @@ namespace Final_project_quiz
         public string Answer { get; set; }
 
 
-        public void LoadRandomQuestion()
+        public void LoadRandomQuestion(string FilePath)
         {
             
             // Зчитуємо всі рядки з файлу
-            string[] lines = File.ReadAllLines("D:\\вікторина файли\\geography_easy.txt");
+            string[] lines = File.ReadAllLines(FilePath);
 
             // Випадковим чином вибираємо питання зі списку
             string randomLine = lines[new Random().Next(0, lines.Length)];
