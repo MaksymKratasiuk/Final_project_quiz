@@ -119,15 +119,16 @@
                     break;
                 }
 
-                Console.WriteLine("Питання: {0}", question.Question);
+                Console.WriteLine("\nПитання: {0}", question.Question);
 
-                Console.Write("Введіть вашу відповідь: ");
+                Console.Write("Введіть вашу відповідь(0-вийти): ");
                 string userAnswer = Console.ReadLine();
 
                 if (userAnswer == "0")
                 {
 
                     Console.WriteLine("Ви відповіли правильно на {0} з {1} питань.", player.Score, questions.Count);
+                    SaveGameStats(player.Name, topic, difficulty, player.Score, questions.Count);
                     return;
                 }
 
