@@ -39,13 +39,47 @@ namespace Final_project_quiz
             }
         }
 
+        
+
         public bool EqualQuestion(Quiz_Question question)
         {
             return Question == question.Question && Answer == question.Answer;
         }
         public bool IsCorrectAnswer(string answer)
         {
-            return  Answer == answer;
+            answer = answer.Replace("?", "і");
+            bool bl = answer.Trim().ToLower() == Answer.ToLower();
+            return bl ;
+        }
+
+        public static List<Quiz_Question> LoadQuestionsFromFile(string filePath)
+        {
+            // Зчитуємо всі рядки з файлу
+            
+            string[] lines = File.ReadAllLines(filePath);
+
+            List<Quiz_Question> loadedQuestions = new List<Quiz_Question>();
+
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(':');
+
+                if (parts.Length >= 2)
+                {
+                    string question = parts[0].Trim();
+                    string answer = parts[1].Trim();
+
+                    Quiz_Question quizQuestion = new Quiz_Question()
+                    {
+                        Question = question,
+                        Answer = answer
+                    };
+
+                    loadedQuestions.Add(quizQuestion);
+                }
+            }
+
+            return loadedQuestions;
         }
 
 

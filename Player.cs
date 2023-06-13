@@ -16,7 +16,14 @@ namespace Final_project_quiz
             Name = name;
             Score = 0;
         }
-
+        public Player()
+        {
+            Console.WriteLine("Введіть ім'я : ");
+            Name = Console.ReadLine();
+            Score = 0;
+        }
+            
+        public void ZeroScore() { Score = 0; }
         public void IncreaseScore()
         {
             Score++;
